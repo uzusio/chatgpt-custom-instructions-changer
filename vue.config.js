@@ -12,6 +12,9 @@ module.exports = {
     content: {
       entry: "./src/content.js",
     },
+    popup: {
+      entry: "./src/popup.js",
+    },
   },
   css: {
     extract: false,
