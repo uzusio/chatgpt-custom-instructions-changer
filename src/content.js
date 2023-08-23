@@ -1,4 +1,3 @@
-console.log("hoge");
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   console.log(request);
   if (request.action === "pasteText") {
@@ -12,8 +11,10 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
       // テキストを上書き
       if (request.id === "textArea1") {
         element1.value = request.text;
+        element1.dispatchEvent(new Event("input", { bubbles: true }));
       } else if (request.id === "textArea2") {
         element2.value = request.text;
+        element2.dispatchEvent(new Event("input", { bubbles: true }));
       }
     }
   }
