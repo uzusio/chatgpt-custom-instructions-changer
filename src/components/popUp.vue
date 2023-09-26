@@ -10,7 +10,7 @@
               icon
               @click="pasteText(item.text1, item.text2)"
             >
-              <v-icon>mdi-content-save</v-icon>
+              <v-icon>mdi-upload</v-icon>
             </v-btn>
             <v-btn class="fixed-btn" icon @click="editItem(item)">
               <v-icon>mdi-pencil</v-icon>
@@ -71,6 +71,7 @@
 
 <script setup>
 import { ref, computed } from "vue";
+import Draggable from "vuedraggable";
 const label = ref("");
 const text1 = ref("");
 const text2 = ref("");
@@ -182,6 +183,12 @@ const onMouseOver = () => {
 
 const onMouseOut = () => {
   mouseOverOnToggleButton.value = false;
+};
+
+const onEnd = (event) => {
+  const item = items.value.splice(event.oldIndex, 1)[0];
+  items.value.splice(event.newIndex, 0, item);
+  // 必要に応じて変更を永続化するためのロジックをここに追加
 };
 </script>
 
