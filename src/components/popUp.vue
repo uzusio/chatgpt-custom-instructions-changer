@@ -70,8 +70,7 @@
 </template>
 
 <script setup>
-import { ref, computed } from "vue";
-import Draggable from "vuedraggable";
+import { ref, computed, nextTick } from "vue";
 const label = ref("");
 const text1 = ref("");
 const text2 = ref("");
@@ -112,10 +111,13 @@ const pasteText = (text1, text2) => {
   });
 };
 
-const toggleEditItemForm = () => {
+const toggleEditItemForm = async () => {
   showNewItemForm.value = false;
   showEditItemForm.value = !showEditItemForm.value;
   clearEditForm();
+
+  await nextTick();
+  window.scrollTo(0, document.body.scrollHeight);
 };
 
 const saveNewItem = () => {
@@ -183,12 +185,6 @@ const onMouseOver = () => {
 
 const onMouseOut = () => {
   mouseOverOnToggleButton.value = false;
-};
-
-const onEnd = (event) => {
-  const item = items.value.splice(event.oldIndex, 1)[0];
-  items.value.splice(event.newIndex, 0, item);
-  // 必要に応じて変更を永続化するためのロジックをここに追加
 };
 </script>
 
