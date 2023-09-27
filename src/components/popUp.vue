@@ -3,20 +3,32 @@
     <v-list>
       <v-list-item v-for="item in items" :key="item.id">
         <v-list-item-content class="d-flex align-center justify-space-between">
-          <v-list-item-title>{{ item.label }}</v-list-item-title>
+          <v-list-item-title class="decorated-text">{{
+            item.label
+          }}</v-list-item-title>
           <div class="no-overflow">
             <v-btn
+              variant="outlined"
+              color="#25b8ab"
               class="fixed-btn"
               icon
               @click="pasteText(item.text1, item.text2)"
             >
               <v-icon>mdi-upload</v-icon>
             </v-btn>
-            <v-btn class="fixed-btn" icon @click="editItem(item)">
+            <v-btn
+              variant="outlined"
+              class="fixed-btn"
+              color="#aaa"
+              icon
+              @click="editItem(item)"
+            >
               <v-icon>mdi-pencil</v-icon>
             </v-btn>
             <v-btn
+              variant="outlined"
               class="fixed-btn"
+              color="#ed5f5f"
               icon
               @click="toggleDeleteConfirmation(item.id)"
             >
@@ -31,6 +43,9 @@
     </v-list>
 
     <v-btn
+      class="rounded-0"
+      variant="outlined"
+      color="#25b8ab"
       @click="toggleEditItemForm"
       @mouseover="onMouseOver"
       @mouseout="onMouseOut"
@@ -60,6 +75,9 @@
         ]"
       ></v-textarea>
       <v-btn
+        class="rounded-0"
+        variant="outlined"
+        color="#25b8ab"
         style="width: 100%; bottom: 2px"
         @click="editMode ? updateItem() : saveNewItem()"
       >
@@ -206,5 +224,16 @@ const onMouseOut = () => {
 .fixed-btn {
   margin: 3px;
   flex-shrink: 0; /* ボタンが縮小しないようにする */
+}
+
+.decorated-text::before {
+  content: "";
+  display: inline-block;
+  height: 90%;
+  width: 6px;
+  background-color: #25b8ab;
+  position: absolute;
+  left: 0;
+  top: 4px;
 }
 </style>

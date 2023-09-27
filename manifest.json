@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "ChatGPT Custom instructions Changer",
+  "name": "ChatGPT カスタムインストラクション スイッチャー",
   "version": "1.0",
-  "description": "An example Chrome extension using Vue.js",
+  "description": "このChrome拡張機能は、ChatGPTのカスタムインストラクション（カスタム指示）を切り替えるためのツールです。",
   "action": {
     "default_popup": "popup.html"
   },

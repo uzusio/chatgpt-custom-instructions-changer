@@ -1,6 +1,6 @@
-# ChatGPT Custom instructions Changer
+# ChatGPT カスタムインストラクション スイッチャー
 
-このChrome拡張機能は、ChatGPTのカスタム指示を切り替えるためのツールです。
+このChrome拡張機能は、ChatGPTのカスタムインストラクション（カスタム指示）を切り替えるためのツールです。
 
 ## インストール方法
 
